@@ -1,6 +1,10 @@
+#Exercise 2
+#YpolGeom
+#Panagiotis Vlassis
+#1115201400022
+
 from scipy.spatial import Delaunay
 import matplotlib.pyplot as plt
-from random import randint
 import numpy as np
 
 n=input('Give number of vertices: ')

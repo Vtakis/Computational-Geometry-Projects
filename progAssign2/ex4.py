@@ -1,3 +1,8 @@
+#Exercise 4
+#YpolGeom
+#Panagiotis Vlassis
+#1115201400022
+
 from sympy import Point, Polygon, Circle, Triangle
 from matplotlib import path
 from random import randint
@@ -5,9 +10,30 @@ import numpy as np
 
 n=input("Give number of tests: ")
 
-pol = Polygon( (randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)) )
+ax=randint(0,20)
+ay=randint(0,20)
+bx=randint(0,20)
+by=randint(0,20)
+cx=randint(0,20)
+cy=randint(0,20)
+dx=randint(0,20)
+dy=randint(0,20)
+ex=randint(0,20)
+ey=randint(0,20)
 
-c = Circle( (randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)) )
+print("\nCreate polygon with points (%d,%d),(%d,%d),(%d,%d),(%d,%d),(%d,%d)" %(ax,ay,bx,by,cx,cy,dx,dy,ex,ey))
+
+pol = Polygon( (ax,ay),(bx,by),(cx,cy),(dx,dy),(ex,ey) )
+
+ax=randint(0,20)
+ay=randint(0,20)
+bx=randint(0,20)
+by=randint(0,20)
+cx=randint(0,20)
+cy=randint(0,20)
+
+print("Create cycle with points (%d,%d),(%d,%d),(%d,%d)" %(ax,ay,bx,by,cx,cy))
+c = Circle( (ax,ay),(bx,by),(cx,cy) )
 
 print("\n------------------------------------")
 print(">>Polygon test with encloses_point<<")
@@ -35,15 +61,30 @@ for i in range(n):
 print("\n-----------------------------")
 print(">>Test for path contains_point<<")
 print("-----------------------------")
-p = path.Path([(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20))])
-print p.contains_point(Point(randint(0,20),randint(0,20)))
+
+ax=randint(0,20)
+ay=randint(0,20)
+bx=randint(0,20)
+by=randint(0,20)
+cx=randint(0,20)
+cy=randint(0,20)
+dx=randint(0,20)
+dy=randint(0,20)
+
+print("Create path with points (%d,%d),(%d,%d),(%d,%d),(%d,%d)" %(ax,ay,bx,by,cx,cy,dx,dy))
+p = path.Path([(ax,ay),(bx,by),(cx,cy),(dx,dy)])
+
+for i in range(n):
+    a=randint(0,20)
+    b=randint(0,20)
+    print("Test point (%d,%d)" %(a,b))
+    print p.contains_point(Point(a,b))
 
 print("\n-----------------------------")
 print(">>Test for path contains_points<<")
 print("-----------------------------")
-p = path.Path([(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20)),(randint(0,20),randint(0,20))])
 points=[]
 
-for i in range(10):
+for i in range(n):
     points.append(Point(randint(0,20),randint(0,20)))
 print p.contains_points(points)

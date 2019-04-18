@@ -1,3 +1,8 @@
+#Exercise 3
+#YpolGeom
+#Panagiotis Vlassis
+#1115201400022
+
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import shortest_path
 from random import randint
@@ -15,9 +20,12 @@ for i in range(n):
     weight.append(randint(0,2*n))
 
 #create graph
-graph=csr_matrix((weight,(row,col)),shape=(n+2,n+2))
+graph=csr_matrix((weight,(row,col)),shape=(n+1,n+1))
 print graph
 
 #create distance matrix
-dist_matrix, predecessors = shortest_path(graph,method='FW',return_predecessors=True)
+dist_matrix,predecessors = shortest_path(graph,method='D',return_predecessors=True)
+print("\ndistance matrix")
 print dist_matrix
+print("\nPredecessors matrix -> find shortest path from point i")
+print predecessors
